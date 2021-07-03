@@ -59,11 +59,11 @@ app.post("/", upload.single("file-to-upload"), async (req, res) => {
       folder: "MicrosoftProject1",
       use_filename: true,
     });
-    const brandURLImage = result.secure_url;
+    const URLImage = result.secure_url;
     // Analyze URL image
-    console.log("Analyzing brands in image...", brandURLImage.split("/").pop());
+    console.log("Analyzing brands in image...", URLImage.split("/").pop());
     const brands = (
-      await computerVisionClient.analyzeImage(brandURLImage, {
+      await computerVisionClient.analyzeImage(URLImage, {
         visualFeatures: ["Brands"],
       })
     ).brands;
